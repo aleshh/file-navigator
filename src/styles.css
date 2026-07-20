@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  font-family: monospace;
+  font-size: 1.3em;
+}
+
+.bareButton {
+  font-size: 1em;
+  font-family: monospace;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.blue {
+  color: silver;
+}
+
+.indented {
+  margin-left: 1em;
+}
+.openerSpace {
+  display: inline-block;
+  width: 1.2em;
+}
+
+.folders {
+  min-width: 5em;
+  border-right: 1px solid gray;
+  padding-right: 1em;
+  margin-right: 1em;
+}
+
+.files {
+  padding-right: 1em;
+  border-right: 1px solid gray;
+}
+
+td {
+  padding: 0 0.5em;
+}
