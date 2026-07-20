@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getFileWithIcon } from "./utils";
 import type { DirectoryNode } from "./types";
 
 function TreeNode({
@@ -30,8 +31,7 @@ function TreeNode({
         type="button"
         onClick={() => setCurrentDirectory(data.children)}
       >
-        {data.type === "file" ? "📄 " : "📁 "}
-        {data.name}
+        {getFileWithIcon(data, open)}
       </button>
       {open ? (
         <div className="indented">

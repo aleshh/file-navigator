@@ -27,16 +27,17 @@
 
 .folders {
   min-width: 5em;
-  border-right: 1px solid gray;
+  background: #f6f6f6;
   padding-right: 1em;
   margin-right: 1em;
 }
 
 .files {
   padding-right: 1em;
-  border-right: 1px solid gray;
 }
 
-td {
+td,
+th {
   padding: 0 0.5em;
+  text-align: left;
 }

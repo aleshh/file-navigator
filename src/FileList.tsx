@@ -1,3 +1,4 @@
+import { getFileWithIcon } from "./utils";
 import type { FileSystemNode } from "./types";
 
 function formatFileSize(input: number): string {
@@ -25,7 +26,7 @@ function FileList({ files }: { files: FileSystemNode[] }) {
         <tbody>
           {files.map((item) => (
             <tr key={item.name}>
-              <td>{item.name}</td>
+              <td>{getFileWithIcon(item)}</td>
               {item.type === "file" ? (
                 <>
                   <td>{formatFileSize(item.size)}</td>
