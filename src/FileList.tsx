@@ -1,17 +1,4 @@
-interface DirectoryNode {
-  type: "directory";
-  name: string;
-  children: FileSystemNode[];
-}
-
-interface FileNode {
-  type: "file";
-  name: string;
-  size: number;
-  modified: string;
-}
-
-type FileSystemNode = DirectoryNode | FileNode;
+import type { FileSystemNode } from "./types";
 
 function formatFileSize(input: number): string {
   const units = ["bytes", "kb", "mb", "gb", "tb"];

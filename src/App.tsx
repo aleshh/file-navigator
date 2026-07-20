@@ -1,26 +1,12 @@
 import { useEffect, useState } from "react";
 import TreeNode from "./TreeNode";
 import FileList from "./FileList";
-
-interface DirectoryNode {
-  type: "directory";
-  name: string;
-  children: FileSystemNode[];
-}
-
-interface FileNode {
-  type: "file";
-  name: string;
-  size: number;
-  modified: string;
-}
-
-type FileSystemNode = DirectoryNode | FileNode;
+import type { DirectoryNode } from "./types";
 
 function App() {
   const [data, setData] = useState<null | DirectoryNode>(null);
   const [currentDirectory, setCurrentDirectory] = useState<
-    FileSystemNode[] | null
+    DirectoryNode[] | null
   >(null);
 
   useEffect(() => {

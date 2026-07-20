@@ -1,19 +1,5 @@
 import { useState } from "react";
-
-interface DirectoryNode {
-  type: "directory";
-  name: string;
-  children: FileSystemNode[];
-}
-
-interface FileNode {
-  type: "file";
-  name: string;
-  size: number;
-  modified: string;
-}
-
-type FileSystemNode = DirectoryNode | FileNode;
+import type { DirectoryNode } from "./types";
 
 function TreeNode({
   data,
