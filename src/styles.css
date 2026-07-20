@@ -13,6 +13,10 @@
   cursor: pointer;
 }
 
+.selected {
+  font-weight: bold;
+}
+
 .blue {
   color: silver;
 }

@@ -8,6 +8,7 @@ function App() {
   const [currentDirectory, setCurrentDirectory] = useState<
     DirectoryNode[] | null
   >(null);
+  const [selectedNode, setSelectedNode] = useState("");
 
   useEffect(() => {
     async function loadData() {
@@ -32,7 +33,13 @@ function App() {
     <>
       <div className="wrapper">
         <div className="folders">
-          <TreeNode data={data} setCurrentDirectory={setCurrentDirectory} />
+          <TreeNode
+            data={data}
+            setCurrentDirectory={setCurrentDirectory}
+            name={currentDirectory.name}
+            selectedNode={selectedNode}
+            setSelectedNode={setSelectedNode}
+          />
         </div>
         {currentDirectory ? <FileList files={currentDirectory} /> : null}
       </div>

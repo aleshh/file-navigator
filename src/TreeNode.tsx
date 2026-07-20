@@ -5,11 +5,20 @@ import type { DirectoryNode } from "./types";
 function TreeNode({
   data,
   setCurrentDirectory,
+  name,
+  selectedNode,
+  setSelectedNode,
 }: {
   data: DirectoryNode;
   setCurrentDirectory: () => {};
+  name: string;
+  selectedNode: string;
+  setSelectedNode: () => {};
 }) {
   const [open, setOpen] = useState(false);
+
+  const nodeName = name + "/" + data.name;
+  const selected = nodeName === selectedNode;
 
   return (
     <div>
@@ -27,9 +36,13 @@ function TreeNode({
         ) : null}
       </div>
       <button
-        className="bareButton"
+        className={`bareButton ${selected ? "selected" : ""}`}
         type="button"
-        onClick={() => setCurrentDirectory(data.children)}
+        onClick={() => {
+          if (data.type !== "directory") return;
+          setCurrentDirectory(data.children);
+          setSelectedNode(nodeName);
+        }}
       >
         {getFileWithIcon(data, open)}
       </button>
@@ -40,6 +53,9 @@ function TreeNode({
               key={item.name}
               data={item}
               setCurrentDirectory={setCurrentDirectory}
+              name={nodeName}
+              selectedNode={selectedNode}
+              setSelectedNode={setSelectedNode}
             />
           ))}
         </div>
